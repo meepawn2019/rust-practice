@@ -17,6 +17,7 @@ fn render(
     canvas.clear();
 
     let (width, height) = canvas.output_size()?;
+    println!("position: {:?}", position);
     println!("{} {}", width, height);
     let screen_position = position + Point::new(width as i32 / 2, height as i32 / 2);
     let screen_rect = Rect::from_center(screen_position, sprite.width(), sprite.height());
@@ -49,7 +50,7 @@ fn main() -> Result<(), String> {
         .load_texture("assets/bardo_1.png")
         .expect("could not load texture");
     let position = Point::new(0, 0);
-    let sprite = Rect::new(0, 0, 26, 36);
+    let sprite = Rect::new(0, 36, 26, 36);
 
     let mut event_pump = sdl_context.event_pump()?;
     let mut i = 0;
